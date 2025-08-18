@@ -8,10 +8,12 @@ import { PortfolioFooter } from "@/components/portfolio-footer"
 import articlesData from "@/data/articles.json"
 import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
+import { use } from "react"
 
-export default function ArticlePage({ params }: { params: { id: string } }) {
+export default function ArticlePage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
-  const article = articlesData.find((a) => a.id === params.id)
+  const { id } = use(params) // ✅ Unwrap la Promise params
+  const article = articlesData.find((a) => a.id === id)
   const articleContentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
