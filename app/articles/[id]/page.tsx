@@ -46,7 +46,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <Button
             variant="outline"
-            className="mb-6 bg-transparent border-blue-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 text-slate-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
+            className="mb-6 bg-transparent border-blue-300 hover:bg-blue-900 hover:text-white hover:border-blue-600 text-slate-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
             onClick={() => router.push("/")}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
