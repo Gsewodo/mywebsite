@@ -3,9 +3,13 @@
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock } from "lucide-react"
 import Link from "next/link"
-import articlesData from "@/data/articles.json"
+import { Article } from "@/lib/articles"
 
-export function ArticlesGrid() {
+interface ArticlesGridClientProps {
+  articles: Article[]
+}
+
+export function ArticlesGridClient({ articles }: ArticlesGridClientProps) {
   return (
     <div className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -14,15 +18,11 @@ export function ArticlesGrid() {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articlesData.map((article) => (
-            <Link
-              key={article.id}
-              href={`/articles/${article.id}`}
-              className="group block"
-            >
-              <article className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
+          {articles.map((article) => (
+            <Link key={article.id} href={`/articles/${article.id}`} className="group block">
+              <article className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 flex flex-col h-full">
                 {/* Image Container */}
-                <div className="relative h-52 bg-gradient-to-br from-gray-100 to-gray-200">
+                <div className="relative h-52 bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
                   <div 
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                     style={{
@@ -32,31 +32,26 @@ export function ArticlesGrid() {
                 </div>
                 
                 {/* Content */}
-                <div className="p-6">
-                  {/* Header with badge and meta */}
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Header with badge */}
                   <div className="flex items-start justify-between mb-4">
                     <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">
-                      {article.title.includes("Sécurité") ? "Security" :
-                       article.title.includes("React") ? "Frontend" :
-                       article.title.includes("Architecture") ? "Backend" : 
-                       "Projet perso"}
+                      {article.badge}
                     </Badge>
                   </div>
                   
-                {/* Title */}
-                  <h3 className="font-bold text-xl mb-3 text-gray-900 transition-colors line-clamp-2"
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = ''}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = ''}>
+                  {/* Title */}
+                  <h3 className="font-bold text-xl mb-3 text-gray-900 transition-colors line-clamp-2">
                     {article.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
                     {article.description}
                   </p>
                   
                   {/* Date and read time */}
-                  <div className="flex items-center gap-4 text-xs text-gray-500">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 mt-auto">
                     <div className="flex items-center gap-1">
                       <Calendar size={12} />
                       <span>
