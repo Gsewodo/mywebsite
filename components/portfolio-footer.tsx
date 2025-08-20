@@ -13,7 +13,7 @@ export function PortfolioFooter() {
             variant="outline"
             size="icon"
             asChild
-            className="border-blue-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 bg-transparent text-gray-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
+            className="border-border hover:bg-primary hover:text-primary-foreground hover:border-primary bg-transparent text-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             <a href="mailto:gsewodo@proton.me">
               <Mail className="w-5 h-5" />
@@ -23,7 +23,7 @@ export function PortfolioFooter() {
             variant="outline"
             size="icon"
             asChild
-            className="border-blue-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 bg-transparent text-gray-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
+            className="border-border hover:bg-primary hover:text-primary-foreground hover:border-primary bg-transparent text-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             <a href="https://www.linkedin.com/in/gracziela-sewodo-733142265/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-5 h-5" />
@@ -33,10 +33,10 @@ export function PortfolioFooter() {
             variant="outline"
             size="icon"
             asChild
-            className="border-blue-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 bg-transparent text-gray-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
+            className="border-border hover:bg-primary hover:text-primary-foreground hover:border-primary bg-transparent text-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             <a href="https://github.com/Gsewodo" target="_blank" rel="noopener noreferrer">
-              <Github className="w-5 h-5" />
+              <Github className="w-5 h-5"  />
             </a>
           </Button>
         </div>
