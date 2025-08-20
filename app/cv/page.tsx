@@ -2,7 +2,7 @@ import { PortfolioHeader } from "@/components/portfolio-header"
 import { PortfolioFooter } from "@/components/portfolio-footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Mail, Phone, Globe } from "lucide-react"
+import { MapPin, Mail, Globe,Download  } from "lucide-react"
 
 export default function CVPage() {
   return (
@@ -14,9 +14,11 @@ export default function CVPage() {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-foreground mb-2">Gracziela Sewodo</h1>
             <p className="text-muted-foreground">Cybersecurity Enthusiast - Développeuse Full-Stack</p>
+
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
             <div className="space-y-6">
               <Card className="bg-white border border-gray-200">
                 <CardHeader>
@@ -44,6 +46,7 @@ export default function CVPage() {
                   </div>
                 </CardContent>
               </Card>
+              
 
               <Card className="bg-white border border-gray-200">
                 <CardHeader>
@@ -100,6 +103,23 @@ export default function CVPage() {
                   </div>
                 </CardContent>
               </Card>
+
+
+
+                  <Card className="bg-white border border-gray-200">
+                <CardHeader>
+                  <CardTitle className="text-lg">Langues</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 text-sm font-medium mb-2">
+                    <p>• Français : C2</p>
+                    <p>• Anglais : B2</p>
+                    <p>• Néerlandais : A1</p>
+                  </div>
+                </CardContent>
+              </Card>
+              
+  
             </div>
 
             <div className="lg:col-span-2 space-y-6">
@@ -133,6 +153,7 @@ export default function CVPage() {
                     <h3 className="font-semibold text-foreground"> Cyber Security Trainee</h3>
                     <p className="text-primary font-medium">Interface3 • En cours</p>
                   </div>
+                  
                   <div>
                     <h3 className="font-semibold text-foreground">Bachelier en Informatique, orientation Développeur d'applications</h3>
                     <p className="text-primary font-medium">ESI - École Supérieure d'Informatique, Bruxelles • 2020 - 2024</p>
@@ -140,7 +161,19 @@ export default function CVPage() {
 
                 </CardContent>
               </Card>
-
+       <Card className="bg-white border border-gray-200">
+    <CardHeader>
+      <CardTitle className="text-lg">Certifications</CardTitle>
+    </CardHeader>
+    <CardContent className="space-y-3 text-sm">
+      <div>
+        <h3 className="font-semibold text-foreground">
+          eJPT (Junior Penetration Tester)
+        </h3>
+        <p className="text-primary font-medium">INE Security • En préparation</p>
+      </div>
+    </CardContent>
+  </Card>
               <Card className="bg-white border border-gray-200">
                 <CardHeader>
                   <CardTitle className="text-lg">Centres d'intérêt</CardTitle>
@@ -153,22 +186,26 @@ export default function CVPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white border border-gray-200">
-                <CardHeader>
-                  <CardTitle className="text-lg">Langues</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-sm font-medium mb-2">
-                    <p>• Français : C2</p>
-                    <p>• Anglais : B2</p>
-                    <p>• Néerlandais : A1</p>
-                  </div>
-                </CardContent>
-              </Card>
+          
+
+      
+
+
+
+
+
+
+
+
+
             </div>
           </div>
         </div>
       </main>
+<div className="text-center mb-8">
+
+
+</div>
 
       <PortfolioFooter />
     </div>
