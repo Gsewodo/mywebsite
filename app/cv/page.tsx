@@ -161,7 +161,7 @@ export default function CVPage() {
 
                 </CardContent>
               </Card>
-       <Card className="bg-white border border-gray-200">
+                         <Card className="bg-white border border-gray-200">
     <CardHeader>
       <CardTitle className="text-lg">Certifications</CardTitle>
     </CardHeader>
@@ -174,6 +174,7 @@ export default function CVPage() {
       </div>
     </CardContent>
   </Card>
+
               <Card className="bg-white border border-gray-200">
                 <CardHeader>
                   <CardTitle className="text-lg">Centres d'intérêt</CardTitle>
@@ -185,17 +186,6 @@ export default function CVPage() {
                   </div>
                 </CardContent>
               </Card>
-
-          
-
-      
-
-
-
-
-
-
-
 
 
             </div>
