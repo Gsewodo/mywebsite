@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-background">
       <PortfolioHeader />
-      <HeroSection />
+ 
       <ArticlesGrid />
       <PortfolioFooter />
     </main>

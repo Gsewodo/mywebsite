@@ -16,9 +16,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Portfolio - Développeur & Cybersécurité",
-  description: "Portfolio personnel - Développement, Réseaux, Cybersécurité",
-  generator: "v0.app",
+  title: "Portfolio de Gracziela Sewodo",
+  description: "Portfolio de Gracziela Sewodo - Développement, Réseaux, Cybersécurité",
 }
 
 export default function RootLayout({
