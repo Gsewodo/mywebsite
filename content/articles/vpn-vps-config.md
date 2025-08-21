@@ -2,7 +2,7 @@
 id: "vpn-vps.md"
 title: "Installer et configurer un VPN sur un VPS"
 badge: "vpn"
-image: "/vpn-vps.png"
+image: "/vps-vpn.jpeg"
 date: "2025-08-20"
 readTime: "5 min"
 description: "Sécuriser sa connexion Internet avec un VPN maison sur un VPS pour protéger ses données et naviguer de manière privée."

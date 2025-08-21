@@ -2,7 +2,7 @@
 id: "pi-hole.md"
 title: "Installer un Pi-hole sur mon Raspberry Pi (avec AdGuard Home)"
 badge: "pi-hole"
-image: "/pi-hole.png"
+image: "/adguard.jpeg"
 date: "2025-08-13"
 readTime: "3 min"
 description: "Je me suis lancé dans la cybersécurité avec une idée simple : commencer par sécuriser mon réseau à la maison, la première question que je me suis posée : comment bloquer les publicités et protéger un peu mieux mes données quand je navigue ? La solution que j’ai testée : "
@@ -25,7 +25,10 @@ Réponse → 0.0.0.0
 Résultat : la pub ne se charge pas, elle disparaît tout simplement. Et c’est exactement le rôle qu’AdGuard Home va jouer dans mon réseau local.  
 ---
 ### AdGuard Home
+![](/adguardHome/adGuard.jpg)  
+*Exemple : logo de adguard home*  
 C’est un logiciel qui s’installe comme **intermédiaire** entre mes appareils et les serveurs DNS publics. Il filtre d’abord toutes les requêtes : si le domaine est indésirable, il répond directement avec une adresse factice (`0.0.0.0`). Si le domaine est autorisé, il transmet la requête à un **serveur DNS en amont (upstream)** comme Cloudflare, Google ou Quad9, qui renvoie l’adresse correcte.  
+
 
 Un **DNS sécurisé (DoH)**
 
