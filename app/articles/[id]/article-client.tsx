@@ -27,15 +27,15 @@ export function ArticlePageClient({ article }: ArticlePageClientProps) {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-700">
+    <div className="min-h-screen" style={{ backgroundColor: "#F3F2EF" }}>
       <PortfolioHeader />
 
       <div className="w-full">
-        {/* Header with return button */}
+        {/* Header avec bouton retour */}
         <div className="max-w-4xl mx-auto px-4 py-8">
           <Button
             variant="outline"
-            className="mb-6 bg-slate-800/50 border-cyan-200/30 hover:bg-cyan-200 hover:text-black hover:border-cyan-200 text-cyan-200 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-200/20"
+            className="mb-6 bg-white border border-[#D1D9E0] text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white hover:border-[#004182] transition-all duration-300 hover:shadow-lg hover:shadow-[#0A66C2]/20"
             onClick={() => router.push("/")}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -43,9 +43,9 @@ export function ArticlePageClient({ article }: ArticlePageClientProps) {
           </Button>
         </div>
 
-        {/* Article Content */}
+        {/* Contenu de l'article */}
         <div ref={articleContentRef} className="max-w-4xl mx-auto px-4 py-8">
-          <div className="aspect-video overflow-hidden rounded-xl mb-8 shadow-lg shadow-cyan-200/10 border border-cyan-200/20">
+          <div className="aspect-video overflow-hidden rounded-xl mb-8 shadow-lg shadow-[#0A66C2]/10 border border-[#D1D9E0] bg-white">
             <img
               src={article.image || "/placeholder.svg?height=300&width=600"}
               alt={article.title}
@@ -55,10 +55,10 @@ export function ArticlePageClient({ article }: ArticlePageClientProps) {
 
           <div className="mb-12">
             <div className="flex items-center justify-between mb-6">
-              <Badge className="bg-slate-700  border-cyan-200/20 text-sm px-3 py-1 rounded-full">
+              <Badge className="bg-[#F3F2EF] text-[#0A66C2] border border-[#D1D9E0] text-sm px-3 py-1 rounded-full">
                 {article.badge}
               </Badge>
-              <div className="flex items-center gap-6 text-sm text-cyan-200">
+              <div className="flex items-center gap-6 text-sm text-[#0A66C2]">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
                   {new Date(article.date).toLocaleDateString("fr-FR", {
@@ -74,16 +74,16 @@ export function ArticlePageClient({ article }: ArticlePageClientProps) {
               </div>
             </div>
 
-            <h1 className="text-5xl font-bold leading-tight tracking-tight text-white mb-6">
+            <h1 className="text-5xl font-bold leading-tight tracking-tight mb-6" style={{ color: "#1D2226" }}>
               {article.title}
             </h1>
-            <p className="text-lg text-slate-300 leading-relaxed font-medium">
+            <p className="text-lg font-medium leading-relaxed" style={{ color: "#5E6D77" }}>
               {article.description}
             </p>
           </div>
 
-          {/* Markdown avec meilleure lisibilité */}
-          <div className="prose prose-slate prose-lg max-w-none prose-invert space-y-6">
+          {/* Markdown */}
+          <div className="prose prose-lg max-w-none space-y-6" style={{ color: "#1D2226" }}>
             <MarkdownRenderer content={article.content} />
           </div>
         </div>
@@ -94,7 +94,7 @@ export function ArticlePageClient({ article }: ArticlePageClientProps) {
   )
 }
 
-// Composant pour rendre le Markdown
+// Markdown Renderer adapté aux couleurs LinkedIn
 function MarkdownRenderer({ content }: { content: string }) {
   const lines = content.split("\n")
   const elements: React.ReactNode[] = []
@@ -112,13 +112,13 @@ function MarkdownRenderer({ content }: { content: string }) {
       }
 
       if (match[2]) {
-        inlineElements.push(<strong key={`strong-${globalKey++}`} className="text-cyan-200">{match[2]}</strong>)
+        inlineElements.push(<strong key={`strong-${globalKey++}`} className="text-[#0A66C2] font-bold">{match[2]}</strong>)
       } else if (match[3]) {
-        inlineElements.push(<em key={`em-${globalKey++}`} className="text-slate-300">{match[3]}</em>)
+        inlineElements.push(<em key={`em-${globalKey++}`} className="text-[#5E6D77]">{match[3]}</em>)
       } else if (match[4]) {
-        inlineElements.push(<del key={`del-${globalKey++}`} className="text-slate-500">{match[4]}</del>)
+        inlineElements.push(<del key={`del-${globalKey++}`} className="text-[#E06847]">{match[4]}</del>)
       } else if (match[5]) {
-        inlineElements.push(<code key={`code-${globalKey++}`} className="bg-slate-700 text-cyan-200 px-2 py-1 rounded border border-cyan-200/20">{match[5]}</code>)
+        inlineElements.push(<code key={`code-${globalKey++}`} className="bg-[#F3F2EF] text-[#0A66C2] px-2 py-1 rounded border border-[#D1D9E0]">{match[5]}</code>)
       } else if (match[6] && match[7]) {
         inlineElements.push(
           <a
@@ -126,7 +126,7 @@ function MarkdownRenderer({ content }: { content: string }) {
             href={match[7]}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-200 hover:text-cyan-100 hover:underline transition-colors"
+            className="text-[#0A66C2] hover:text-[#004182] hover:underline transition-colors"
           >
             {match[6]}
           </a>
@@ -155,7 +155,7 @@ function MarkdownRenderer({ content }: { content: string }) {
       }
       if (linesCopy.length > 0) linesCopy.shift()
       elements.push(
-        <pre key={`code-${globalKey++}`} className="bg-slate-800 text-cyan-200 p-4 rounded-lg overflow-x-auto my-4 border border-cyan-200/20">
+        <pre key={`code-${globalKey++}`} className="bg-[#F3F2EF] text-[#1D2226] p-4 rounded-lg overflow-x-auto my-4 border border-[#D1D9E0]">
           <code>{codeLines.join("\n")}</code>
         </pre>
       )
@@ -163,20 +163,20 @@ function MarkdownRenderer({ content }: { content: string }) {
     }
 
     if (line.startsWith("### ")) {
-      elements.push(<h3 key={`h3-${globalKey++}`} className="text-2xl font-semibold mt-6 mb-3 text-white">{parseInlineMarkdown(line.slice(4))}</h3>)
+      elements.push(<h3 key={`h3-${globalKey++}`} className="text-2xl font-semibold mt-6 mb-3" style={{ color: "#1D2226" }}>{parseInlineMarkdown(line.slice(4))}</h3>)
       continue
     }
     if (line.startsWith("## ")) {
-      elements.push(<h2 key={`h2-${globalKey++}`} className="text-3xl font-bold mt-8 mb-4 text-white">{parseInlineMarkdown(line.slice(3))}</h2>)
+      elements.push(<h2 key={`h2-${globalKey++}`} className="text-3xl font-bold mt-8 mb-4" style={{ color: "#1D2226" }}>{parseInlineMarkdown(line.slice(3))}</h2>)
       continue
     }
     if (line.startsWith("# ")) {
-      elements.push(<h1 key={`h1-${globalKey++}`} className="text-4xl font-extrabold mt-10 mb-5 text-white">{parseInlineMarkdown(line.slice(2))}</h1>)
+      elements.push(<h1 key={`h1-${globalKey++}`} className="text-4xl font-extrabold mt-10 mb-5" style={{ color: "#1D2226" }}>{parseInlineMarkdown(line.slice(2))}</h1>)
       continue
     }
 
     if (line.startsWith("> ")) {
-      elements.push(<blockquote key={`blockquote-${globalKey++}`} className="border-l-4 border-cyan-200 pl-4 italic my-4 text-slate-300 bg-slate-800/30 py-2 rounded-r">{parseInlineMarkdown(line.slice(2))}</blockquote>)
+      elements.push(<blockquote key={`blockquote-${globalKey++}`} className="border-l-4 border-[#0A66C2] pl-4 italic my-4 bg-[#F3F2EF] text-[#5E6D77] py-2 rounded-r">{parseInlineMarkdown(line.slice(2))}</blockquote>)
       continue
     }
 
@@ -186,7 +186,7 @@ function MarkdownRenderer({ content }: { content: string }) {
         olItems.push(linesCopy.shift()!.replace(/^\d+\. /, ""))
       }
       elements.push(
-        <ol key={`ol-${globalKey++}`} className="ml-6 list-decimal my-4 space-y-2 text-slate-300">
+        <ol key={`ol-${globalKey++}`} className="ml-6 list-decimal my-4 space-y-2" style={{ color: "#5E6D77" }}>
           {olItems.map((item, idx) => <li key={`ol-item-${globalKey}-${idx}`} className="leading-relaxed">{parseInlineMarkdown(item)}</li>)}
         </ol>
       )
@@ -199,7 +199,7 @@ function MarkdownRenderer({ content }: { content: string }) {
         ulItems.push(linesCopy.shift()!.slice(2))
       }
       elements.push(
-        <ul key={`ul-${globalKey++}`} className="ml-6 list-disc my-4 space-y-2 text-slate-300">
+        <ul key={`ul-${globalKey++}`} className="ml-6 list-disc my-4 space-y-2" style={{ color: "#5E6D77" }}>
           {ulItems.map((item, idx) => <li key={`ul-item-${globalKey}-${idx}`} className="leading-relaxed">{parseInlineMarkdown(item)}</li>)}
         </ul>
       )
@@ -207,7 +207,7 @@ function MarkdownRenderer({ content }: { content: string }) {
     }
 
     if (line.trim() === "---") {
-      elements.push(<hr key={`hr-${globalKey++}`} className="my-8 border-cyan-200/30" />)
+      elements.push(<hr key={`hr-${globalKey++}`} className="my-8 border-[#D1D9E0]" />)
       continue
     }
 
@@ -220,7 +220,7 @@ function MarkdownRenderer({ content }: { content: string }) {
       const match = line.match(/!\[(.*?)\]\((.*?)\)/)
       if (match) {
         const [, alt, src] = match
-        elements.push(<img key={`img-${globalKey++}`} src={src} alt={alt} className="my-6 rounded-xl shadow-lg shadow-cyan-200/10 border border-cyan-200/20 max-w-full h-auto" />)
+        elements.push(<img key={`img-${globalKey++}`} src={src} alt={alt} className="my-6 rounded-xl shadow-lg shadow-[#0A66C2]/10 border border-[#D1D9E0] max-w-full h-auto" />)
         continue
       }
     }
@@ -228,7 +228,7 @@ function MarkdownRenderer({ content }: { content: string }) {
     if (line.match(/^https?:\/\/.+$/)) {
       elements.push(
         <p key={`url-${globalKey++}`} className="my-4">
-          <a href={line} target="_blank" rel="noopener noreferrer" className="text-cyan-200 hover:text-cyan-100 hover:underline break-all transition-colors">
+          <a href={line} target="_blank" rel="noopener noreferrer" className="text-[#0A66C2] hover:text-[#004182] hover:underline break-all transition-colors">
             {line}
           </a>
         </p>
@@ -236,7 +236,7 @@ function MarkdownRenderer({ content }: { content: string }) {
       continue
     }
 
-    elements.push(<p key={`p-${globalKey++}`} className="leading-relaxed text-lg text-slate-300">{parseInlineMarkdown(line)}</p>)
+    elements.push(<p key={`p-${globalKey++}`} className="leading-relaxed text-lg" style={{ color: "#5E6D77" }}>{parseInlineMarkdown(line)}</p>)
   }
 
   return <>{elements}</>
